@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DealOrNoDeal.Core
 {
-   public class Game
+   internal class Game
    {
       public List<Briefcase> RemainingBriefcases { get; set; }
       public List<Briefcase> RemovedBriefcases { get; set; }
