@@ -2,12 +2,14 @@
 using DealOrNoDeal.Core.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DealOrNoDeal.Services
 {
     public class BriefcaseService : IBriefcaseService
     {
-      List<double> briefcaseValues;
+      private List<double> briefcaseValues;
+      private static List<Briefcase> briefcases;
 
       public BriefcaseService()
       {
@@ -16,7 +18,7 @@ namespace DealOrNoDeal.Services
 
       public List<Briefcase> RandomizeBriefcaseValues()
       {
-         List<Briefcase> briefcases = new List<Briefcase>();
+         briefcases = new List<Briefcase>();
          int briefcaseValuesCount = briefcaseValues.Count;
 
          for (int i = 0; i < briefcaseValuesCount; i++)
@@ -47,6 +49,11 @@ namespace DealOrNoDeal.Services
       private void RemoveAmountFromBriefcaseValues(double amountToRemove)
       {
          briefcaseValues.Remove(amountToRemove);
+      }
+
+      public Briefcase GetPlayerBriefcase(int briefcaseNumber)
+      {
+         return briefcases.Where(b => b.Number == briefcaseNumber).FirstOrDefault();
       }
    }
 }

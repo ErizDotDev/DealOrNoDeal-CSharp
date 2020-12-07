@@ -2,6 +2,6 @@
 {
    public interface IPlayerService
    {
-      Player GetDetails();
+      Player GetPlayerDetails();
    }
 }

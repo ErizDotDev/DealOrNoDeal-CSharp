@@ -23,7 +23,7 @@ namespace DealOrNoDeal.Core
       public void Run()
       {         
          briefcases = _briefcaseService.RandomizeBriefcaseValues();
-         
+         player = _playerService.GetPlayerDetails();
       }
    }
 }
