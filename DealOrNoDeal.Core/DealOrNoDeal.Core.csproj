@@ -40,11 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BriefcaseProcessor.cs" />
     <Compile Include="Data\Briefcase.cs" />
     <Compile Include="Data\BriefcaseValues.cs" />
     <Compile Include="Data\Game.cs" />
     <Compile Include="GameInstance.cs" />
+    <Compile Include="Interfaces\IBriefcaseService.cs" />
+    <Compile Include="Interfaces\IPlayerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
