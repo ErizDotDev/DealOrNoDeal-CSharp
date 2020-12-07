@@ -1,13 +1,15 @@
-﻿using System;
+﻿using DealOrNoDeal.Core;
+using DealOrNoDeal.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 
-namespace DealOrNoDeal.Core
+namespace DealOrNoDeal.Services
 {
-   public class BriefcaseProcessor
-   {
+    public class BriefcaseService : IBriefcaseService
+    {
       List<double> briefcaseValues;
 
-      public BriefcaseProcessor()
+      public BriefcaseService()
       {
          briefcaseValues = BriefcaseValues.Load();
       }
