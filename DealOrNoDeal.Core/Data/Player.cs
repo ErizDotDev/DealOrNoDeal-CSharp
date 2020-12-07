@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DealOrNoDeal.Core
 {
-   internal class Player
+   public class Player
    {
       public string Name { get; set; }
       public Briefcase SelectedBriefcase { get; set; }

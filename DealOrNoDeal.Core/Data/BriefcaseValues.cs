@@ -2,7 +2,7 @@
 
 namespace DealOrNoDeal.Core
 {
-   internal class BriefcaseValues
+   public class BriefcaseValues
    {
       public static List<double> Load()
       {
