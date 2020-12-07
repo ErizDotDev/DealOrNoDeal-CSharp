@@ -1,4 +1,4 @@
-﻿using System;
+﻿using DealOrNoDeal.Core.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +8,22 @@ namespace DealOrNoDeal.Core
 {
    public class GameInstance
    {
-      public void Run()
-      {
+      private IBriefcaseService _briefcaseService;
+      private IPlayerService _playerService;
 
+      private List<Briefcase> briefcases;
+      private Player player;
+
+      public GameInstance(IBriefcaseService briefcaseService, IPlayerService playerService)
+      {
+         _briefcaseService = briefcaseService;
+         _playerService = playerService;
+      }
+
+      public void Run()
+      {         
+         briefcases = _briefcaseService.RandomizeBriefcaseValues();
+         
       }
    }
 }
