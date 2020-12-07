@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DealOrNoDeal.Core
 {
@@ -18,20 +15,23 @@ namespace DealOrNoDeal.Core
       public List<Briefcase> RandomizeBriefcaseValues()
       {
          List<Briefcase> briefcases = new List<Briefcase>();
+         int briefcaseValuesCount = briefcaseValues.Count;
 
-         for (int i = 0; i < briefcaseValues.Count; i++)
+         for (int i = 0; i < briefcaseValuesCount; i++)
          {
             Briefcase briefcase = new Briefcase()
             {
                Number = i + 1,
                Amount = GetRandomAmountFromBriefcaseValues()
             };
+
+            briefcases.Add(briefcase);
          }
 
          return briefcases;
       }
 
-      public double GetRandomAmountFromBriefcaseValues()
+      private double GetRandomAmountFromBriefcaseValues()
       {
          int minLimit = 0;
          int maxLimit = briefcaseValues.Count - 1;
