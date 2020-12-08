@@ -35,7 +35,6 @@ namespace DealOrNoDeal.Test
          foreach (Briefcase briefcase in briefcases)
          {
             if (briefcase == firstBriefcase) continue;
-
             if (briefcase.Amount == firstBriefcase.Amount) return true;
          }
 

@@ -58,6 +58,7 @@ namespace DealOrNoDeal.Services
          catch
          {
             Console.WriteLine("Please select a valid number");
+            Console.WriteLine();
          }
 
          return null;
