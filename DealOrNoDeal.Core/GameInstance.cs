@@ -1,5 +1,7 @@
-﻿using DealOrNoDeal.Core.Interfaces;
+﻿using DealOrNoDeal.Core.Data;
+using DealOrNoDeal.Core.Interfaces;
 using System.Collections.Generic;
+using System;
 
 namespace DealOrNoDeal.Core
 {
@@ -21,7 +23,7 @@ namespace DealOrNoDeal.Core
       {         
          briefcases = _briefcaseService.RandomizeBriefcaseValues();
          player = _playerService.GetPlayerDetails();
-         
+         Console.WriteLine($"{player.Name} has won {player.SelectedBriefcase.FullAmount}");
       }
    }
 }

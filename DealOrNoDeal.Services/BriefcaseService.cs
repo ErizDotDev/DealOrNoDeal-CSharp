@@ -1,4 +1,4 @@
-﻿using DealOrNoDeal.Core;
+﻿using DealOrNoDeal.Core.Data;
 using DealOrNoDeal.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -51,7 +51,7 @@ namespace DealOrNoDeal.Services
          briefcaseValues.Remove(amountToRemove);
       }
 
-      public Briefcase GetPlayerBriefcase(int briefcaseNumber)
+      public Briefcase LoadBriefcase(int briefcaseNumber)
       {
          return briefcases.Where(b => b.Number == briefcaseNumber).FirstOrDefault();
       }

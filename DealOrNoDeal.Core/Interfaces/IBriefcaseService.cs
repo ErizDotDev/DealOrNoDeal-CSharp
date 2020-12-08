@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using DealOrNoDeal.Core.Data;
+using System.Collections.Generic;
 
 namespace DealOrNoDeal.Core.Interfaces
 {
    public interface IBriefcaseService
    {
       List<Briefcase> RandomizeBriefcaseValues();
-      Briefcase GetPlayerBriefcase(int briefcaseNumber);
+      Briefcase LoadBriefcase(int briefcaseNumber);
    }
 }

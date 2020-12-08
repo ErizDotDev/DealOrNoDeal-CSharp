@@ -15,11 +15,16 @@ namespace DealOrNoDeal.Services
 
       public Player GetPlayerDetails()
       {
-         Player player = new Player
+         Player player = null;
+
+         while (player.IsNotValid())
          {
-            Name = GetPlayerName(),
-            SelectedBriefcase = _briefcaseService.GetPlayerBriefcase(GetPlayerBriefcase())
-         };
+            player = new Player
+            {
+               Name = GetPlayerName(),
+               SelectedBriefcase = _briefcaseService.LoadBriefcase(GetPlayerBriefcase())
+            };
+         }
 
          return player;
       }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DealOrNoDeal.Core
+namespace DealOrNoDeal.Core.Data
 {
    public class BriefcaseValues
    {
