@@ -1,4 +1,6 @@
-﻿namespace DealOrNoDeal.Core.Data
+﻿using System.Collections.Generic;
+
+namespace DealOrNoDeal.Core.Data
 {
    public class Game
    {

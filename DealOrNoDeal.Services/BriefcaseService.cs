@@ -51,9 +51,9 @@ namespace DealOrNoDeal.Services
          briefcaseValues.Remove(amountToRemove);
       }
 
-      public Briefcase LoadBriefcase(int briefcaseNumber)
+      public Briefcase LoadBriefcase(int? briefcaseNumber)
       {
-         return briefcases.Where(b => b.Number == briefcaseNumber).FirstOrDefault();
+         return briefcaseNumber == null ? null : briefcases.Where(b => b.Number == briefcaseNumber.Value).FirstOrDefault();
       }
    }
 }

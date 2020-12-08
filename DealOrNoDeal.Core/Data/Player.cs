@@ -1,4 +1,4 @@
-﻿namespace DealOrNoDeal.Core.Data;
+﻿namespace DealOrNoDeal.Core.Data
 {
    public class Player
    {

@@ -6,6 +6,6 @@ namespace DealOrNoDeal.Core.Interfaces
    public interface IBriefcaseService
    {
       List<Briefcase> RandomizeBriefcaseValues();
-      Briefcase LoadBriefcase(int briefcaseNumber);
+      Briefcase LoadBriefcase(int? briefcaseNumber);
    }
 }

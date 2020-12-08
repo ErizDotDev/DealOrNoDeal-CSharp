@@ -17,7 +17,7 @@ namespace DealOrNoDeal.Services
       {
          Player player = null;
 
-         while (player.IsNotValid())
+         while (!player.IsValid())
          {
             player = new Player
             {
@@ -35,13 +35,13 @@ namespace DealOrNoDeal.Services
          return Console.ReadLine();
       }
 
-      private int GetPlayerBriefcase()
+      private int? GetPlayerBriefcase()
       {
          Console.Write("Select a briefcase number (from 1 to 26): ");
          return GetPlayerBriefcaseValue();
       }
 
-      private int GetPlayerBriefcaseValue()
+      private int? GetPlayerBriefcaseValue()
       {
          try
          {
@@ -55,12 +55,12 @@ namespace DealOrNoDeal.Services
 
             throw new Exception();
          }
-         catch (Exception e)
+         catch
          {
             Console.WriteLine("Please select a valid number");
          }
 
-         return 0;
+         return null;
       }
    }
 }

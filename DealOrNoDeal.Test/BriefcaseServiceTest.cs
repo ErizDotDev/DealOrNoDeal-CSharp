@@ -1,4 +1,4 @@
-﻿using DealOrNoDeal.Core;
+﻿using DealOrNoDeal.Core.Data;
 using DealOrNoDeal.Services;
 using System.Collections.Generic;
 using System.Linq;
