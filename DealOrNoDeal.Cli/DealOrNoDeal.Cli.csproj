@@ -49,6 +49,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DealOrNoDeal.Core\DealOrNoDeal.Core.csproj">
+      <Project>{54efb1dd-3619-4e3c-ac7c-1ba6e95c040e}</Project>
+      <Name>DealOrNoDeal.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DealOrNoDeal.Services\DealOrNoDeal.Services.csproj">
+      <Project>{f858bded-7106-4f87-99b0-e5263dfd0f7f}</Project>
+      <Name>DealOrNoDeal.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

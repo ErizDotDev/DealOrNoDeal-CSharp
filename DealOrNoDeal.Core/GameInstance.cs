@@ -1,8 +1,5 @@
 ﻿using DealOrNoDeal.Core.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DealOrNoDeal.Core
 {
@@ -24,6 +21,7 @@ namespace DealOrNoDeal.Core
       {         
          briefcases = _briefcaseService.RandomizeBriefcaseValues();
          player = _playerService.GetPlayerDetails();
+         
       }
    }
 }

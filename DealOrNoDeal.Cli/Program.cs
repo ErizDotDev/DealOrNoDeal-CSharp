@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DealOrNoDeal.Core;
+using DealOrNoDeal.Core.Interfaces;
+using DealOrNoDeal.Services;
+using System;
 
 namespace DealOrNoDeal.Cli
 {
@@ -10,6 +9,14 @@ namespace DealOrNoDeal.Cli
    {
       static void Main(string[] args)
       {
+         Console.WriteLine("Let's play Deal Or No Deal...");
+
+         IBriefcaseService briefcaseService = new BriefcaseService();
+         IPlayerService playerService = new PlayerService(briefcaseService);
+         GameInstance dealOrNoDeal = new GameInstance(briefcaseService, playerService);
+         dealOrNoDeal.Run();
+
+         Console.ReadKey();
       }
    }
 }
