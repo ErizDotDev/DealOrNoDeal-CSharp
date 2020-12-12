@@ -9,20 +9,28 @@ namespace DealOrNoDeal.Core
    {
       private IBriefcaseService _briefcaseService;
       private IPlayerService _playerService;
+      private IGameRoundService _gameRoundService;            
 
-      private List<Briefcase> briefcases;
-      private Player player;
-
-      public GameInstance(IBriefcaseService briefcaseService, IPlayerService playerService)
+      public GameInstance(IBriefcaseService briefcaseService, IPlayerService playerService, IGameRoundService gameRoundService)
       {
          _briefcaseService = briefcaseService;
          _playerService = playerService;
+         _gameRoundService = gameRoundService;
       }
 
       public void Run()
-      {         
-         briefcases = _briefcaseService.RandomizeBriefcaseValues();
-         player = _playerService.GetPlayerDetails();
+      {
+         List<Briefcase> briefcases = _briefcaseService.RandomizeBriefcaseValues();
+         Player player = _playerService.GetPlayerDetails();
+         Dictionary<int, int> numberOfBriefcasesToOpenPerRound = _gameRoundService.GetNumberOfBriefcasesToOpenPerRound();
+
+         foreach (KeyValuePair<int, int> roundBriefcaseCountPair in numberOfBriefcasesToOpenPerRound)
+         {
+            int roundNumber = roundBriefcaseCountPair.Key;
+            int briefcaseCount = roundBriefcaseCountPair.Value;
+            _gameRoundService.PlayRound(roundNumber, briefcaseCount);
+         }
+
          Console.WriteLine($"{player.Name} has won {player.SelectedBriefcase.FullAmount}");
       }
    }

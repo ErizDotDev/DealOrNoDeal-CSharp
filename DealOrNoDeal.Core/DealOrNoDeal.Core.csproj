@@ -46,6 +46,7 @@
     <Compile Include="Extensions\PlayerExtensions.cs" />
     <Compile Include="GameInstance.cs" />
     <Compile Include="Interfaces\IBriefcaseService.cs" />
+    <Compile Include="Interfaces\IGameRoundService.cs" />
     <Compile Include="Interfaces\IPlayerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

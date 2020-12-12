@@ -13,7 +13,8 @@ namespace DealOrNoDeal.Cli
 
          IBriefcaseService briefcaseService = new BriefcaseService();
          IPlayerService playerService = new PlayerService(briefcaseService);
-         GameInstance dealOrNoDeal = new GameInstance(briefcaseService, playerService);
+         IGameRoundService gameRoundService = new GameRoundService();
+         GameInstance dealOrNoDeal = new GameInstance(briefcaseService, playerService, gameRoundService);
          dealOrNoDeal.Run();
 
          Console.ReadKey();
