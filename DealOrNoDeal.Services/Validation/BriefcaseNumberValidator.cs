@@ -46,12 +46,9 @@ namespace DealOrNoDeal.Services.Validation
 
       private bool BriefcaseNumberIsValid(int briefcaseNumber)
       {
-         if (briefcaseNumber > 0)
+         if (briefcaseNumber > 0 && BriefcaseNumberExists(briefcaseNumber))
          {
-            if (BriefcaseNumberExists(briefcaseNumber))
-            {
-               return true;
-            }
+            return true;
          }
 
          return false;
