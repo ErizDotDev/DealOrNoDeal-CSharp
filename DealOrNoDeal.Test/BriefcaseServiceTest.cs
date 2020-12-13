@@ -11,7 +11,8 @@ namespace DealOrNoDeal.Test
       [Fact]
       public void RandomizeBriefcaseValues__ShouldReturnLength26()
       {
-         BriefcaseService briefcaseProcessor = new BriefcaseService();
+         Game game = new Game();
+         BriefcaseService briefcaseProcessor = new BriefcaseService(game);
          List<Briefcase> briefcases = briefcaseProcessor.RandomizeBriefcaseValues();
 
          Assert.True(briefcases.Count == 26);
@@ -20,7 +21,8 @@ namespace DealOrNoDeal.Test
       [Fact]
       public void RandomizeBriefcaseValues__ShouldNotHaveRepeatingValues()
       {
-         BriefcaseService briefcaseProcessor = new BriefcaseService();
+         Game game = new Game();
+         BriefcaseService briefcaseProcessor = new BriefcaseService(game);
          List<Briefcase> briefcases = briefcaseProcessor.RandomizeBriefcaseValues();
 
          Briefcase firstBriefcase = briefcases.First();

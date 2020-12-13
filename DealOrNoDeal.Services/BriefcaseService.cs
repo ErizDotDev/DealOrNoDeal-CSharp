@@ -11,7 +11,7 @@ namespace DealOrNoDeal.Services
       private List<double> briefcaseValues;
       private static List<Briefcase> briefcases;
 
-      public BriefcaseService()
+      public BriefcaseService(Game game)
       {
          briefcaseValues = BriefcaseValues.Load();
       }
@@ -53,7 +53,17 @@ namespace DealOrNoDeal.Services
 
       public Briefcase LoadBriefcase(int? briefcaseNumber)
       {
-         return briefcaseNumber == null ? null : briefcases.Where(b => b.Number == briefcaseNumber.Value).FirstOrDefault();
+         return briefcaseNumber == null 
+            ? null 
+            : briefcases.Where(b => b.Number == briefcaseNumber.Value)
+               .FirstOrDefault();
+      }
+
+      public bool ValidateBriefcaseNumberIfExists(List<Briefcase> remainingBriefcases, int briefcaseNumber)
+      {
+         return remainingBriefcases
+            .Where(b => b.Number == briefcaseNumber)
+            .Any();
       }
    }
 }

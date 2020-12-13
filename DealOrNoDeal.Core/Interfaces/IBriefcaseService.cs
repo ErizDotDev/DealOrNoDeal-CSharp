@@ -7,5 +7,6 @@ namespace DealOrNoDeal.Core.Interfaces
    {
       List<Briefcase> RandomizeBriefcaseValues();
       Briefcase LoadBriefcase(int? briefcaseNumber);
+      bool ValidateBriefcaseNumberIfExists(List<Briefcase> remainingBriefcase, int briefcaseNumber);
    }
 }

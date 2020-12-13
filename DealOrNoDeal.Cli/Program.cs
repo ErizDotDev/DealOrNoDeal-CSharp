@@ -1,4 +1,5 @@
 ﻿using DealOrNoDeal.Core;
+using DealOrNoDeal.Core.Data;
 using DealOrNoDeal.Core.Interfaces;
 using DealOrNoDeal.Services;
 using System;
@@ -11,11 +12,12 @@ namespace DealOrNoDeal.Cli
       {
          Console.WriteLine("Let's play Deal Or No Deal...");
 
-         IBriefcaseService briefcaseService = new BriefcaseService();
+         Game game = new Game();
+         IBriefcaseService briefcaseService = new BriefcaseService(game);
          IPlayerService playerService = new PlayerService(briefcaseService);
-         IGameRoundService gameRoundService = new GameRoundService();
+         IGameRoundService gameRoundService = new GameRoundService(briefcaseService);
          GameInstance dealOrNoDeal = new GameInstance(briefcaseService, playerService, gameRoundService);
-         dealOrNoDeal.Run();
+         dealOrNoDeal.Run(game);
 
          Console.ReadKey();
       }

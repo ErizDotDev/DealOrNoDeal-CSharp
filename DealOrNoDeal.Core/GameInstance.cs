@@ -18,17 +18,22 @@ namespace DealOrNoDeal.Core
          _gameRoundService = gameRoundService;
       }
 
-      public void Run()
+      public void Run(Game game)
       {
          List<Briefcase> briefcases = _briefcaseService.RandomizeBriefcaseValues();
+         game.RemainingBriefcases = briefcases;
+
          Player player = _playerService.GetPlayerDetails();
+         game.RemainingBriefcases.Remove(player.SelectedBriefcase);
+
          Dictionary<int, int> numberOfBriefcasesToOpenPerRound = _gameRoundService.GetNumberOfBriefcasesToOpenPerRound();
 
          foreach (KeyValuePair<int, int> roundBriefcaseCountPair in numberOfBriefcasesToOpenPerRound)
          {
             int roundNumber = roundBriefcaseCountPair.Key;
             int briefcaseCount = roundBriefcaseCountPair.Value;
-            _gameRoundService.PlayRound(roundNumber, briefcaseCount);
+            _gameRoundService.Initialize(game);
+            game = _gameRoundService.PlayRound(roundNumber, briefcaseCount);
          }
 
          Console.WriteLine($"{player.Name} has won {player.SelectedBriefcase.FullAmount}");
