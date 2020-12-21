@@ -9,11 +9,13 @@ namespace DealOrNoDeal.Services
    public class GameRoundService : IGameRoundService
    {
       private IBriefcaseService _briefcaseService;
+      private IBankerOfferService _bankerOfferService;
       private Game _game;
 
-      public GameRoundService(IBriefcaseService briefcaseService)
+      public GameRoundService(IBriefcaseService briefcaseService, IBankerOfferService bankerOfferService)
       {
          _briefcaseService = briefcaseService;
+         _bankerOfferService = bankerOfferService;
       }
 
       public void Initialize(Game game)
@@ -30,8 +32,11 @@ namespace DealOrNoDeal.Services
             int briefcaseNumber = GetBriefcaseNumber();
             Briefcase briefcase = _briefcaseService.LoadBriefcase(briefcaseNumber);
             DisplayBriefcase(briefcase);
-            _game = _game.RemoveBriefcaseFromList(briefcase);
+            _game = _game.RemoveBriefcaseFromList(briefcase);            
          }
+
+         double bankerOffer = _bankerOfferService.CalculateOffer(_game.RemainingBriefcases, roundNumber);
+         Console.WriteLine($"The banker's offer is: PHP{bankerOffer}");
 
          return _game;
       }

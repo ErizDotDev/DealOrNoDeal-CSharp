@@ -1,6 +1,5 @@
 ﻿using DealOrNoDeal.Core.Data;
 using DealOrNoDeal.Core.Interfaces;
-using DealOrNoDeal.Services;
 using System.Collections.Generic;
 
 namespace DealOrNoDeal.Services.Validation

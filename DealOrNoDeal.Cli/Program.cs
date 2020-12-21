@@ -15,7 +15,8 @@ namespace DealOrNoDeal.Cli
          Game game = new Game();
          IBriefcaseService briefcaseService = new BriefcaseService(game);
          IPlayerService playerService = new PlayerService(briefcaseService);
-         IGameRoundService gameRoundService = new GameRoundService(briefcaseService);
+         IBankerOfferService bankerOfferService = new BankerOfferService();
+         IGameRoundService gameRoundService = new GameRoundService(briefcaseService, bankerOfferService);
          GameInstance dealOrNoDeal = new GameInstance(briefcaseService, playerService, gameRoundService);
          dealOrNoDeal.Run(game);
 

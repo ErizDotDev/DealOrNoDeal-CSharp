@@ -46,6 +46,7 @@
     <Compile Include="Extensions\GameExtensions.cs" />
     <Compile Include="Extensions\PlayerExtensions.cs" />
     <Compile Include="GameInstance.cs" />
+    <Compile Include="Interfaces\IBankerOfferService.cs" />
     <Compile Include="Interfaces\IBriefcaseService.cs" />
     <Compile Include="Interfaces\IGameRoundService.cs" />
     <Compile Include="Interfaces\IPlayerService.cs" />
