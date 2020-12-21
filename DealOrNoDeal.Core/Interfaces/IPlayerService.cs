@@ -1,6 +1,6 @@
 ﻿using DealOrNoDeal.Core.Data;
 
-namespace DealOrNoDeal.Core.Interfaces
+namespace DealOrNoDeal.Core
 {
    public interface IPlayerService
    {

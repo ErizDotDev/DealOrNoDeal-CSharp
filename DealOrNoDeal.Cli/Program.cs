@@ -1,6 +1,5 @@
 ﻿using DealOrNoDeal.Core;
 using DealOrNoDeal.Core.Data;
-using DealOrNoDeal.Core.Interfaces;
 using DealOrNoDeal.Services;
 using System;
 

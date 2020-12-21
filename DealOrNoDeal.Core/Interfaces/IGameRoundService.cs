@@ -1,7 +1,7 @@
 ﻿using DealOrNoDeal.Core.Data;
 using System.Collections.Generic;
 
-namespace DealOrNoDeal.Core.Interfaces
+namespace DealOrNoDeal.Core
 {
    public interface IGameRoundService
    {

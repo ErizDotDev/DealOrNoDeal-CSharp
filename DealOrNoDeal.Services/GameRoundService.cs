@@ -1,5 +1,5 @@
-﻿using DealOrNoDeal.Core.Data;
-using DealOrNoDeal.Core.Interfaces;
+﻿using DealOrNoDeal.Core;
+using DealOrNoDeal.Core.Data;
 using DealOrNoDeal.Services.Validation;
 using System;
 using System.Collections.Generic;

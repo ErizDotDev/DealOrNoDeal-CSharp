@@ -1,5 +1,4 @@
 ﻿using DealOrNoDeal.Core.Data;
-using DealOrNoDeal.Core.Interfaces;
 using System.Collections.Generic;
 using System;
 
