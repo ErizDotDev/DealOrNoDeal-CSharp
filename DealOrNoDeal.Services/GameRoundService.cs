@@ -37,6 +37,10 @@ namespace DealOrNoDeal.Services
 
          double bankerOffer = _bankerOfferService.CalculateOffer(_game.RemainingBriefcases, roundNumber);
          Console.WriteLine($"The banker's offer is: PHP{bankerOffer}");
+         _game.BankerOffers.Add(bankerOffer);
+
+         _game.GameState = GetContestantsDecision();
+         _game.WinCondition = GetContestantsWinCondition(roundNumber);
 
          return _game;
       }
@@ -55,24 +59,45 @@ namespace DealOrNoDeal.Services
          }
 
          return briefcaseNumber;
-      }                             
-
-      private int GetBriefcaseNumber(string input)
-      {
-         int parsedInput;
-         
-         if (int.TryParse(input, out parsedInput))
-         {
-            return parsedInput;
-         }
-
-         return 0;
       }
 
       private void DisplayBriefcase(Briefcase briefcase)
       {
          Console.WriteLine($"Briefcase number {briefcase.Number} contains...");
          Console.WriteLine($"PHP {briefcase.Amount.ToString()}");
+      }
+
+      private GameState GetContestantsDecision()
+      {
+         GameState gameState = GameState.Invalid;
+
+         while (gameState == GameState.Invalid)
+         {
+            Console.Write("Is it a Deal or No Deal? (Type `Deal` or `No Deal`)");
+            string contestantsAnswer = Console.ReadLine().ToLower();
+            gameState = ValidateContestantsAnswer(contestantsAnswer);
+         }
+         
+         return gameState;
+      }
+
+      private GameState ValidateContestantsAnswer(string contestantsAnswer)
+      {
+         string dealAnswer = "deal";
+         string noDealAnswer = "no deal";
+
+         if (contestantsAnswer == dealAnswer)
+            return GameState.Conclude;
+         else if (contestantsAnswer == noDealAnswer)
+            return GameState.Active;
+         else return GameState.Invalid;
+      }
+
+      private WinCondition GetContestantsWinCondition(int roundNumber)
+      {
+         if (_game.GameState == GameState.Conclude && roundNumber > 10)
+            return WinCondition.BankerOffer;
+         else return WinCondition.PersonalBriefcase;
       }
 
       public Dictionary<int, int> GetNumberOfBriefcasesToOpenPerRound()

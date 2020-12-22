@@ -43,6 +43,8 @@
     <Compile Include="Data\Briefcase.cs" />
     <Compile Include="Data\BriefcaseValues.cs" />
     <Compile Include="Data\Game.cs" />
+    <Compile Include="Enums\GameState.cs" />
+    <Compile Include="Enums\WinCondition.cs" />
     <Compile Include="Extensions\GameExtensions.cs" />
     <Compile Include="Extensions\PlayerExtensions.cs" />
     <Compile Include="GameInstance.cs" />
