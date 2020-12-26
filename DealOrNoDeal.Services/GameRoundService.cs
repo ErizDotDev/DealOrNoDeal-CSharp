@@ -36,7 +36,7 @@ namespace DealOrNoDeal.Services
          }
 
          double bankerOffer = _bankerOfferService.CalculateOffer(_game.RemainingBriefcases, roundNumber);
-         Console.WriteLine($"The banker's offer is: PHP{bankerOffer}");
+         Console.WriteLine($"The banker's offer is: {bankerOffer.Format()}");
          _game.BankerOffers.Add(bankerOffer);
 
          _game.GameState = GetContestantsDecision();
@@ -64,7 +64,7 @@ namespace DealOrNoDeal.Services
       private void DisplayBriefcase(Briefcase briefcase)
       {
          Console.WriteLine($"Briefcase number {briefcase.Number} contains...");
-         Console.WriteLine($"PHP {briefcase.Amount.ToString()}");
+         Console.WriteLine(briefcase.Amount.Format());
       }
 
       private GameState GetContestantsDecision()
