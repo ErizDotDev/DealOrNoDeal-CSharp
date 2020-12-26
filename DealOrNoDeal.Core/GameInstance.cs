@@ -47,7 +47,7 @@ namespace DealOrNoDeal.Core
          string amountWon = string.Empty;
 
          if (game.WinCondition == WinCondition.BankerOffer)
-            amountWon = game.BankerOffers[game.BankerOffers.Count - 1].ToString();
+            amountWon = game.BankerOffers[game.BankerOffers.Count - 1].Format();
          else amountWon = player.SelectedBriefcase.FullAmount;
 
          Console.WriteLine($"{player.Name} has won {amountWon}");

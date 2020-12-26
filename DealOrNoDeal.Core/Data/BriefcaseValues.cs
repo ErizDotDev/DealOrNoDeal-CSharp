@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DealOrNoDeal.Core.Data
 {
@@ -35,7 +37,18 @@ namespace DealOrNoDeal.Core.Data
             2000000.00
          };
 
-         return briefcaseValues;
+         return Randomize(briefcaseValues);
+      }
+
+      private static List<double> Randomize(List<double> briefcaseValues)
+      {
+         Random rng = new Random();
+         var result = briefcaseValues
+            .Select(x => new { value = x, order = rng.Next() })
+            .OrderBy(x => x.order).Select(x => x.value)
+            .ToList();
+
+         return result;
       }
    }
 }
